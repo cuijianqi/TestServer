@@ -56,7 +56,12 @@ spring:
 #      链中模板解析器的顺序
       template-resolver-order: 1
 #      应该从解决方案中排除的视图名称的逗号分隔列表
-      excluded-view-names: 
+      excluded-view-names:
+      
+spring.boot.admin.client.url: "http://localhost:8080"  
+management.endpoints.web.exposure.include: "*"
+management.security.enabled=false
+ 
 mybatis:
   mapper-locations: classpath:mapping/*.xml
   type-aliases-package: com.example.demo.pojo
