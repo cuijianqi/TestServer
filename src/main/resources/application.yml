@@ -60,7 +60,7 @@ spring:
       
 spring.boot.admin.client.url: "http://localhost:8080"  
 management.endpoints.web.exposure.include: "*"
-management.security.enabled=false
+management.security.enabled: false
  
 mybatis:
   mapper-locations: classpath:mapping/*.xml
