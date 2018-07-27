@@ -6,7 +6,13 @@
     <result column="userName" property="userName" jdbcType="VARCHAR" />
     <result column="age" property="age" jdbcType="INTEGER" />
   </resultMap>
-  <select id="getUserInfo" parameterType="int" resultMap="BaseResultMap">
+  <select id="getUserInfo" parameterType="int" resultType="com.example.demo.pojo.UserPojo">
   	select * from user where id=#{0}
   </select>
+  <select id="getAllUserInfo" resultMap="BaseResultMap">
+  	select * from user 
+  </select>
+  <delete id="delUserInfo" parameterType="int">
+  	delete from user where id=#{0}
+  </delete>
 </mapper>

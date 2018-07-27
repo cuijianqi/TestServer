@@ -3,7 +3,7 @@ server:
 
 spring:
     datasource:
-        name: mysql_test
+        name: primary
         type: com.alibaba.druid.pool.DruidDataSource
         #druid相关配置
         druid:
@@ -31,37 +31,10 @@ spring:
           #打开PSCache，并指定每个连接上PSCache的大小。oracle设为true，mysql设为false。分库分表较多推荐设置为false
           pool-prepared-statements: false
           max-pool-prepared-statement-per-connection-size: 20
-#spring:     
-    thymeleaf:
-#      启用模板缓存（开发时建议关闭）
-      cache: false
-#      检查模板是否存在，然后再呈现
-      check-template: true
-#      检查模板位置是否存在
-      check-template-location: true
-#      Content-Type值
-      content-type: text/html
-#      启用MVC Thymeleaf视图分辨率
-      enabled: true
-#      模板编码
-      encoding: UTF-8
-#      应用于模板的模板模式
-      mode: HTML5
-#      在构建URL时预先查看名称的前缀
-      prefix: classpath:/resources/templates/
-#      构建URL时附加查看名称的后缀
-      suffix: .html
-#      可以解析的视图名称的逗号分隔列表
-      view-names: 
-#      链中模板解析器的顺序
-      template-resolver-order: 1
-#      应该从解决方案中排除的视图名称的逗号分隔列表
-      excluded-view-names:
-      
-spring.boot.admin.client.url: "http://localhost:8080"  
-management.endpoints.web.exposure.include: "*"
-management.security.enabled: false
- 
+          
+spring.output.ansi.enabled: DETECT
+logging.level.root: debug 
+logging.config: classpath:log4j2.xml
 mybatis:
   mapper-locations: classpath:mapping/*.xml
   type-aliases-package: com.example.demo.pojo
