@@ -25,7 +25,7 @@ public class UserController {
 	private IUserService iUserService;
 	
 	@ApiOperation(value="获取用户", notes="")
-	@ApiImplicitParam(name = "id", value = "用户ID", required = true, dataType = "Integer" ,paramType="path")
+	@ApiImplicitParam(name = "id", value = "用户ID", required = true, dataType = "Long" ,paramType="path")
 	@RequestMapping(value="/userInfo/{id}",method=RequestMethod.GET)
 	public String getUserInfo(@PathVariable("id") int id){
 		logger.info("进入getUserInfo"+id);
@@ -52,7 +52,7 @@ public class UserController {
 	}
 	
 	@ApiOperation(value="删除用户", notes="根据url的id来指定删除对象")
-	@ApiImplicitParam(name = "id", value = "用户ID", required = true, dataType = "Integer" ,paramType="path")
+	@ApiImplicitParam(name = "id", value = "用户ID", required = true, dataType = "Long" ,paramType="path")
 	@RequestMapping(value="/delUserInfo/{id}",method=RequestMethod.GET)
 	public void delUserInfo(@PathVariable("id") int id){
 		logger.info("进入delUserInfo"+id);
