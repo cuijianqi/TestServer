@@ -7,6 +7,7 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.pojo.UserPojo;
@@ -25,7 +26,7 @@ public class UserController {
 	
 	@ApiOperation(value="获取用户", notes="")
 	@ApiImplicitParam(name = "id", value = "用户ID", required = true, dataType = "Integer" ,paramType="path")
-	@RequestMapping(value="/userInfo/{id}")
+	@RequestMapping(value="/userInfo/{id}",method=RequestMethod.GET)
 	public String getUserInfo(@PathVariable("id") int id){
 		logger.info("进入getUserInfo"+id);
 		UserPojo up = iUserService.getUserInfo(id);
@@ -38,7 +39,7 @@ public class UserController {
 	}
 	
 	@ApiOperation(value="获取用户列表", notes="")
-	@RequestMapping(value="/allUserInfo")
+	@RequestMapping(value="/allUserInfo" ,method=RequestMethod.GET)
 	public String getAllUserInfo(){
 		logger.info("进入getAllUserInfo");
 		List<UserPojo> upList = iUserService.getAllUserInfo();
@@ -52,7 +53,7 @@ public class UserController {
 	
 	@ApiOperation(value="删除用户", notes="根据url的id来指定删除对象")
 	@ApiImplicitParam(name = "id", value = "用户ID", required = true, dataType = "Integer" ,paramType="path")
-	@RequestMapping(value="/delUserInfo/{id}")
+	@RequestMapping(value="/delUserInfo/{id}",method=RequestMethod.GET)
 	public void delUserInfo(@PathVariable("id") int id){
 		logger.info("进入delUserInfo"+id);
 		iUserService.delUserInfo(id);
