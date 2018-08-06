@@ -19,7 +19,7 @@ import io.swagger.annotations.ApiOperation;
 @RestController
 @RequestMapping(value="/user")
 public class UserController {
-
+	//Can't import project demo from an existing workspace folder
 	Logger logger = LogManager.getLogger(LogManager.ROOT_LOGGER_NAME);
 	@Autowired
 	private IUserService iUserService;
